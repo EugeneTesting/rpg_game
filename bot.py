@@ -74,8 +74,9 @@ def send_location_description(message, location_key):
     description = location['description']
     actions = location.get('actions', {})
     image = location.get('image')
+    print(image)
 
-    # Отправляем пользователю описание локации и кнопки для действий
+    # Отправляем пользователю картинку, описание локации и кнопки для действий
     if image:
         bot.send_photo(message.chat.id, open(image, 'rb'))
     bot.send_message(message.from_user.id, description,

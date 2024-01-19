@@ -17,7 +17,7 @@ def save_user_data(user_data):
 
 
 def load_locations():
-    with open("locations.json", "r") as file:
+    with open("locations.json", "r", encoding='utf-8') as file:
         return json.load(file)
 
 
