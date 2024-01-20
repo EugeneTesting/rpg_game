@@ -16,11 +16,13 @@ def save_user_data(user_data):
         json.dump(user_data, file)
 
 
+# Загрузка локаций из файла
 def load_locations():
     with open("locations.json", "r", encoding='utf-8') as file:
         return json.load(file)
 
 
+# Получаем основное меню
 def get_menu_keyboard():
     menu_keyboard = types.ReplyKeyboardMarkup(row_width=3,
                                               resize_keyboard=True,
@@ -29,6 +31,7 @@ def get_menu_keyboard():
     return menu_keyboard
 
 
+# Получаем меню с кнопками из словаря
 def get_keyboard_from_actions(actions):
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
     for action_text, action_command in actions.items():
@@ -36,6 +39,7 @@ def get_keyboard_from_actions(actions):
     return keyboard
 
 
+# Получаем текущую локацию
 def get_current_location(obj_data, user_id):
     current_location = obj_data.get(user_id, {}).get(
         'current_location', 'start')
